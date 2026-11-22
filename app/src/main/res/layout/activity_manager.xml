@@ -1,101 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollManager"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E8ECEF">
+    android:background="#F1F5F9"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:paddingBottom="28dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#0F172A"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingTop="22dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.1"
+                android:text="ADMINISTRACIÓN • GERENCIA"
+                android:textColor="#38BDF8"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Solicitudes y Tasas de Interés"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvContadorSolicitudes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Solicitudes pendientes por revisar: 0"
+                android:textColor="#CBD5E1"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/containerSolicitudes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingTop="16dp"
+            android:paddingRight="16dp" />
 
         <TextView
+            android:id="@+id/tvTituloDetalleAceptado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Panel de Administrador (Manager)"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="#333333"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="DESGLOSE DE PRÉSTAMO ACEPTADO"
+            android:textColor="#475569"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
-        <!-- SECCIÓN 1: Último Movimiento / Renovación -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:background="#FFFFFF"
-            android:padding="15dp"
-            android:elevation="3dp"
-            android:layout_marginBottom="15dp">
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvMgrCliente"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Cliente: Sin seleccionar"
+                    android:textColor="#0F172A"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvMgrEstadoBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#10B981"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="4dp"
+                    android:text="ACEPTADA"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
             <TextView
+                android:id="@+id/tvMgrFolioFecha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Último Préstamo / Renovación"
-                android:textStyle="bold"
-                android:textColor="#FF9800"
-                android:textSize="18sp"
-                android:layout_marginBottom="10dp"/>
-
-            <TextView android:id="@+id/tvMgrCliente" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cliente: -" android:textSize="16sp"/>
-            <TextView android:id="@+id/tvMgrMontoBase" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Capital Solicitado: $0.00" android:textSize="16sp"/>
-            <TextView android:id="@+id/tvMgrPlazo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Plazo: 0 meses" android:textSize="16sp"/>
-        </LinearLayout>
-
-        <!-- SECCIÓN 2: Cálculos Financieros (Suma, Mult, Div) -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="#FFFFFF"
-            android:padding="15dp"
-            android:elevation="3dp"
-            android:layout_marginBottom="15dp">
+                android:layout_marginTop="8dp"
+                android:text="Fecha de solicitud: --"
+                android:textColor="#64748B"
+                android:textSize="13sp" />
 
             <TextView
+                android:id="@+id/tvMgrFrecuencia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Proyección y Cálculos"
-                android:textStyle="bold"
-                android:textColor="#2196F3"
-                android:textSize="18sp"
-                android:layout_marginBottom="10dp"/>
-
-            <TextView android:id="@+id/tvMgrInteres" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Interés Generado (15%): $0.00" android:textSize="16sp"/>
-            <TextView android:id="@+id/tvMgrTotalPago" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Total a Pagar (Capital + Interés): $0.00" android:textSize="16sp" android:textStyle="bold"/>
-            <TextView android:id="@+id/tvMgrMensualidad" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pago Mensual Estimado: $0.00" android:textSize="16sp" android:textColor="#F44336"/>
-        </LinearLayout>
-
-        <!-- SECCIÓN 3: Saldos Globales Actualizados -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="#FFFFFF"
-            android:padding="15dp"
-            android:elevation="3dp"
-            android:layout_marginBottom="20dp">
+                android:layout_marginTop="4dp"
+                android:text="Modalidad de Pago: --"
+                android:textColor="#334155"
+                android:textSize="13sp" />
 
             <TextView
+                android:id="@+id/tvMgrPlazo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Saldos Globales Actualizados"
-                android:textStyle="bold"
-                android:textColor="#4CAF50"
-                android:textSize="18sp"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginTop="4dp"
+                android:text="Plazo Solicitado: --"
+                android:textColor="#334155"
+                android:textSize="13sp" />
 
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cartera Activa Total: $150,000.00" android:textSize="16sp"/>
-            <TextView android:id="@+id/tvMgrNuevoSaldo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nueva Cartera (con este préstamo): $0.00" android:textSize="16sp" android:textStyle="bold"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:background="#E2E8F0" />
+
+            <TextView
+                android:id="@+id/tvMgrMontoBase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Capital Solicitado: $0.00"
+                android:textColor="#0F172A"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvMgrInteres"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Interés Generado: $0.00"
+                android:textColor="#2563EB"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvMgrTotalPago"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Total a Pagar: $0.00"
+                android:textColor="#10B981"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvMgrMensualidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Pago por periodo: $0.00"
+                android:textColor="#0F172A"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvMgrNuevoSaldo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Nueva Cartera Total: $0.00"
+                android:textColor="#64748B"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btnVerAbonos"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="14dp"
+                android:backgroundTint="#2563EB"
+                android:text="Ver Abonos, Intereses y Multas"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <Button
             android:id="@+id/btnMgrVolver"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Cerrar Panel" />
+            android:layout_height="50dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginRight="16dp"
+            android:backgroundTint="#475569"
+            android:text="Volver al Menú"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
 
     </LinearLayout>
 </ScrollView>

@@ -11,7 +11,7 @@
         android:theme="@style/Theme.SistemaPrestamos">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,10 +19,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".MainActivity" android:exported="false" />
         <activity android:name=".LoanFormActivity" android:exported="false" />
-        <activity android:name=".StatusActivity" android:exported="false" />
         <activity android:name=".DashboardActivity" android:exported="false" />
+        <activity android:name=".StatusActivity" android:exported="false" />
         <activity android:name=".ManagerActivity" android:exported="false" />
+        <activity android:name=".ManagerAbonosActivity" android:exported="false" />
+        <activity android:name=".RegistrarAbonoActivity" android:exported="false" />
 
     </application>
 </manifest>
